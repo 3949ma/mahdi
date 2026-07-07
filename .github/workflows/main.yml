@@ -34,9 +34,7 @@ jobs:
             autoconf automake libtool pkg-config \
             zlib1g-dev libncurses5-dev libncursesw5-dev \
             cmake libffi-dev libssl-dev \
-            liblzma-dev build-essential ccache
-
-      
+            liblzma-dev build-essential ccach
 
       - name: Install Python packages
         run: |
@@ -44,10 +42,6 @@ jobs:
           pip install Cython==0.29.37
           pip install buildozer==1.5.0
           pip install python-for-android
-      - name: Clean build
-        run: |
-          buildozer android clean
-          rm -rf .buildozer
 
       - name: Build APK
         env:
