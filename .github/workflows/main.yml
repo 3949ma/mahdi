@@ -36,10 +36,7 @@ jobs:
             cmake libffi-dev libssl-dev \
             liblzma-dev build-essential ccache
 
-      - name: Clean build
-        run: |
-          buildozer android clean
-          rm -rf .buildozer
+      
 
       - name: Install Python packages
         run: |
@@ -47,6 +44,10 @@ jobs:
           pip install Cython==0.29.37
           pip install buildozer==1.5.0
           pip install python-for-android
+      - name: Clean build
+        run: |
+          buildozer android clean
+          rm -rf .buildozer
 
       - name: Build APK
         env:
