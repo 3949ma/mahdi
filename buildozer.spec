@@ -6,11 +6,11 @@ package.name = darfursongs
 package.domain = org.mahdi
 
 source.dir = .
-source.include_exts = py,kv,png,ttf,mp3
+source.include_exts = py,kv,png,jpg,jpeg,ttf,mp3
 
 version = 1.0
 
-requirements = python3,kivy==master,kivymd==1.2.0,pillow,arabic-reshaper,python-bidi,pyjnius
+requirements = python3,kivy==2.3.0,kivymd==1.2.0,pillow,arabic-reshaper,python-bidi,pyjnius
 
 orientation = portrait
 
