@@ -1,0 +1,236 @@
+#:import FitImage kivymd.uix.fitimage.fitimage.FitImage
+#:import dp kivy.metrics.dp
+
+MDScreenManager:
+
+    SplashScreen:
+        name: "splash_screen"
+
+    ListScreen:
+        name: "list_screen"
+
+    PlayerScreen:
+        name: "player_screen"
+
+    FavoriteScreen:
+        name: "favorite_screen"
+
+    DeveloperScreen:
+        name: "developer_screen"
+
+
+<SplashScreen>:
+
+    MDBoxLayout:
+        orientation: "vertical"
+        spacing: dp(20)
+        padding: dp(30)
+
+        FitImage:
+            source: "icon.png"
+            pos_hint: {"center_x":0.5}
+
+        MDLabel:
+            text: app.app_title
+            halign: "center"
+            font_style: "Headline"
+
+        MDLabel:
+            text: "Loading..."
+            halign: "center"
+            
+
+<ListScreen>:
+
+    MDBoxLayout:
+        orientation: "vertical"
+
+        MDToolbar:
+
+            title: app.app_title
+
+            right_action_items:
+                [
+                ["heart",lambda x: app.root.current="favorite_screen"],
+                ["information",lambda x: app.root.current="developer_screen"]
+                ]
+
+        MDTextField:
+
+            hint_text: "بحث..."
+
+            on_text:
+                app.filter_songs(self.text)
+
+        ScrollView:
+
+            MDList:
+
+                id: songs_container
+
+
+<PlayerScreen>:
+
+    MDBoxLayout:
+        orientation: "vertical"
+        spacing: dp(10)
+        padding: dp(15)
+
+        MDToolbar:
+            title: app.current_song_title
+
+            left_action_items:
+                [["arrow-left", lambda x: setattr(app.root, "current", "list_screen")]]
+
+            right_action_items:
+                [["heart", lambda x: app.toggle_favorite()]]
+
+        Widget:
+
+        FitImage:
+            id: poster
+            source: app.current_poster
+            size_hint: None, None
+            size: dp(260), dp(260)
+            pos_hint: {"center_x": .5}
+
+        MDLabel:
+            text: app.current_song_title
+            halign: "center"
+            bold: True
+            font_style: "Headline"
+
+        MDLabel:
+            text: app.smart_mood_tag
+            halign: "center"
+            theme_text_color: "Secondary"
+
+        MDLabel:
+            text: app.next_song_preview
+            halign: "center"
+            theme_text_color: "Hint"
+
+        MDSlider:
+            id: progress_slider
+            min: 0
+            max: app.song_length
+            value: app.song_position
+
+            on_touch_up:
+                if self.collide_point(*args[1].pos): app.seek_song(self.value)
+
+        MDBoxLayout:
+            adaptive_height: True
+
+            MDLabel:
+                text: app.time_label
+                halign: "center"
+
+        MDBoxLayout:
+            adaptive_height: True
+            spacing: dp(15)
+            padding: dp(10)
+
+            MDIconButton:
+                icon: "shuffle"
+                on_release: app.toggle_shuffle()
+
+            MDIconButton:
+                icon: "skip-previous"
+                on_release: app.previous_song()
+
+            MDIconButton:
+                icon: "pause-circle" if app.is_playing else "play-circle"
+                icon_size: "60sp"
+                on_release: app.toggle_play()
+
+            MDIconButton:
+                icon: "skip-next"
+                on_release: app.next_song()
+
+            MDIconButton:
+                icon: "repeat"
+                on_release: app.toggle_repeat()
+
+        MDCard:
+            orientation: "vertical"
+            padding: dp(10)
+            radius: [15]
+            size_hint_y: None
+            height: dp(180)
+
+            MDLabel:
+                text: app.current_lyrics
+                halign: "center"
+                text_size: self.width, None
+                valign: "top"
+                theme_text_color: "Secondary"
+
+        Widget:
+
+
+<FavoriteScreen>:
+
+    MDBoxLayout:
+        orientation: "vertical"
+
+        MDToolbar:
+            title: "الأغاني المفضلة"
+
+            left_action_items:
+                [["arrow-left",
+                lambda x: setattr(app.root,"current","list_screen")]]
+
+        ScrollView:
+
+            MDList:
+                id: fav_songs_container
+
+
+<DeveloperScreen>:
+
+    MDBoxLayout:
+        orientation: "vertical"
+        spacing: dp(15)
+        padding: dp(20)
+
+        MDToolbar:
+            title: "عن المطور"
+
+            left_action_items:
+                [["arrow-left",
+                lambda x: setattr(app.root,"current","list_screen")]]
+
+        FitImage:
+            source: "mahdi.png"
+            size_hint: None,None
+            size: dp(180),dp(180)
+            pos_hint: {"center_x":.5}
+
+        MDLabel:
+            text: "Mahdi Musa"
+            halign: "center"
+            font_style: "Headline"
+
+        MDLabel:
+            text: "مطور تطبيق أغاني دارفور"
+            halign: "center"
+
+        MDLabel:
+            text: "mahdimusa833@gmail.com"
+            halign: "center"
+
+        MDRaisedButton:
+            text: "مشاركة التطبيق"
+            pos_hint: {"center_x":.5}
+            on_release: app.share_app()
+
+        Widget:
+
+
+
+
+
+
+
+            

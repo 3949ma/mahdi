@@ -1,0 +1,42 @@
+songs_list = [
+    {
+        "title": "دالدومينق كو تراث دارفور",
+        "file": "50.mp3",
+        "poster": "default_poster.png",
+        "lyrics": "دالدومينق كو",
+        "mood": "تراث أصيل",
+        "fav": False,
+    },
+    {
+        "title": "شرطاي سكيو",
+        "file": "51.mp3",
+        "poster": "default_poster.png",
+        "lyrics": "شرطاي سكيو",
+        "mood": "تراث أصيل",
+        "fav": False,
+    },
+    {
+        "title": "كيلمانقا بقي",
+        "file": "52.mp3",
+        "poster": "default_poster.png",
+        "lyrics": "كيلمانقا بقي",
+        "mood": "تراث أصيل",
+        "fav": False,
+    },
+    {
+        "title": "ناس دارفور كفاية المعاناة",
+        "file": "53.mp3",
+        "poster": "default_poster.png",
+        "lyrics": "ناس دارفور كفاية المعاناة",
+        "mood": "رسالة إنسانية",
+        "fav": False,
+    },
+    {
+        "title": "من أعلى مكان شفت أبعد مكان",
+        "file": "54.mp3",
+        "poster": "default_poster.png",
+        "lyrics": "من أعلى مكان شفت أبعد مكان",
+        "mood": "روائع مريم أمو",
+        "fav": False,
+    },
+]
