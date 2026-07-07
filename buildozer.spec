@@ -10,28 +10,25 @@ source.include_exts = py,kv,png,jpg,jpeg,ttf,mp3
 
 version = 1.0
 
-requirements = python3,kivy==2.3.0,kivymd==1.2.0,pillow,arabic-reshaper,python-bidi,pyjnius
+requirements = python3,kivy==2.2.1,kivymd==1.2.0,pillow,arabic-reshaper,python-bidi,pyjnius
 
 orientation = portrait
-
 fullscreen = 0
 
 icon.filename = icon.png
-
 presplash.filename = icon.png
 
-android.ndk_api = 24
+android.api = 33
 android.minapi = 24
 android.ndk = 25b
+android.ndk_api = 24
 
-android.archs = arm64-v8a,armeabi-v7a
+android.archs = arm64-v8a, armeabi-v7a
 
 android.permissions = INTERNET,WAKE_LOCK
 
 android.accept_sdk_license = True
-
 android.enable_androidx = True
-
 android.allow_backup = True
 
 p4a.branch = master
