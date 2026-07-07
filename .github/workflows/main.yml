@@ -22,7 +22,8 @@ jobs:
             -v "$PWD":/home/user/hostcwd \
             -w /home/user/hostcwd \
             kivy/buildozer \
-            -c "yes | buildozer android debug"
+            -c "export BUILDOZER_ALLOW_KIVY_BUILD_FROM_ROOT=1 && yes | buildozer android debug"
+
 
 
       - name: Upload APK
