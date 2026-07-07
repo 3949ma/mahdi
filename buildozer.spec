@@ -10,7 +10,7 @@ source.include_exts = py,kv,png,ttf,mp3
 
 version = 1.0
 
-requirements = python3,kivy==2.3.0,kivymd==1.2.0,pillow,arabic-reshaper,python-bidi,pyjnius
+requirements = python3,kivy==master,kivymd==1.2.0,pillow,arabic-reshaper,python-bidi,pyjnius
 
 orientation = portrait
 
@@ -33,6 +33,8 @@ android.accept_sdk_license = True
 android.enable_androidx = True
 
 android.allow_backup = True
+
+p4a.branch = master
 
 log_level = 2
 
