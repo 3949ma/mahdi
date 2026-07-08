@@ -10,7 +10,7 @@ source.include_exts = py,kv,png,mp3
 
 version = 1.0
 
-requirements = python3==3.10.11,kivy==2.2.1,kivymd==1.2.0,pillow,python-bidi,pyjnius,legacy-cgi, setuptools
+requirements = python3,kivy==2.2.1,kivymd==1.2.0,pillow,python-bidi,pyjnius,legacy-cgi, setuptools
 
 orientation = portrait
 fullscreen = 0
