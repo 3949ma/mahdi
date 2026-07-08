@@ -39,7 +39,6 @@ jobs:
         openjdk-17-jdk \
         libffi-dev libssl-dev zlib1g-dev \
         libncurses5-dev libncursesw5-dev \
-        libtinfo5 \
         ccache
     # 5. تشغيل عملية بناء التطبيق وتوليد ملف الـ APK
     - name: Build with Buildozer
