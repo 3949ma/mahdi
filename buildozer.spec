@@ -21,7 +21,7 @@ presplash.filename = icon.png
 android.api = 33
 android.minapi = 24
 android.ndk = 25b
-#android.ndk_api = 24
+android.ndk_api = 24
 
 android.archs = arm64-v8a, armeabi-v7a
 
