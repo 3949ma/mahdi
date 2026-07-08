@@ -1,16 +1,15 @@
 [app]
 
 title = أغاني دارفور
-
 package.name = darfursongs
 package.domain = org.mahdi
 
 source.dir = .
-source.include_exts = py,kv,png,mp3
+source.include_exts = py,kv,png,jpg,jpeg,ttf,mp3
 
 version = 1.0
 
-requirements = python3,kivy==2.3.0,kivymd==1.2.0,pillow,ffpyplayer,arabic-reshaper,python-bidi,pyjnius
+requirements = python3,kivy==2.3.0,kivymd,pillow,ffpyplayer,arabic-reshaper,python-bidi
 
 orientation = portrait
 fullscreen = 0
@@ -22,7 +21,7 @@ android.api = 33
 android.minapi = 24
 android.ndk = 25b
 
-android.archs = arm64-v8a, armeabi-v7a
+android.archs = arm64-v8a,armeabi-v7a
 
 android.permissions = INTERNET,WAKE_LOCK
 
