@@ -1,0 +1,48 @@
+name: Build Android App
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    # 1. جلب الكود الخاص بك من المستودع
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    # 2. تحديد إصدار بايثون المستقر (هذه الخطوة ستحل المشكلة تماماً)
+    - name: Set up Python 3.11
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.11'
+        cache: 'pip'
+
+    # 3. تثبيت المكتبات والأدوات المساعدة المحدثة
+    - name: Install Dependencies
+      run: |
+        pip install --upgrade pip
+        pip install cython buildozer legacy-cgi
+
+    # 4. تثبيت حزم النظام المطلوبة لـ Buildozer و Android SDK
+    - name: Install System Packages
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y git zip unzip openjdk-17-jdk autoconf libtool pkg-config zlib1g-dev libncurses5-dev libssl-dev libffi-dev
+
+    # 5. تشغيل عملية بناء التطبيق وتوليد ملف الـ APK
+    - name: Build with Buildozer
+      run: |
+        buildozer android debug
+
+    # 6. حفظ ملف الـ APK الناتج لكي تتمكن من تحميله
+    - name: Upload APK Artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: android-apk
+        path: bin/*.apk
+
