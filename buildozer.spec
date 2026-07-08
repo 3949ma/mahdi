@@ -6,11 +6,11 @@ package.name = darfursongs
 package.domain = org.mahdi
 
 source.dir = .
-source.include_exts = py,kv,png,jpg,jpeg,ttf,mp3
+source.include_exts = py,kv,png,mp3
 
 version = 1.0
 
-requirements = python3,kivy==2.2.1,kivymd==1.2.0,pillow,arabic-reshaper,python-bidi,pyjnius
+requirements = python3,kivy==2.2.1,kivymd==1.2.0,pillow,python-bidi,pyjnius
 
 orientation = portrait
 fullscreen = 0
@@ -30,8 +30,6 @@ android.permissions = INTERNET,WAKE_LOCK
 android.accept_sdk_license = True
 android.enable_androidx = True
 android.allow_backup = True
-
-p4a.branch = master
 
 log_level = 2
 
